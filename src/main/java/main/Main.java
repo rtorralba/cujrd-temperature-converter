@@ -10,8 +10,8 @@ public class Main {
         CelsiusToFahrenheit celsiusToFahrenheit = new CelsiusToFahrenheit();
         CelsiusToReamur celsiusToReamur = new CelsiusToReamur();
         for (int celsius = 0; celsius <= 100; celsius += 10) {
-            fahrenheit = celsiusToFahrenheit.celsiusToFahrenheit(celsius);
-            reamur = celsiusToReamur.celsiusToReamur(celsius);
+            fahrenheit = celsiusToFahrenheit.convertFromCelsius(celsius);
+            reamur = celsiusToReamur.convertFromCelsius(celsius);
             System.out.println(celsius + ", " + fahrenheit + ", " + reamur);
         }
     }
