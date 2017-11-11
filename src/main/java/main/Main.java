@@ -4,16 +4,21 @@ import coverter.CelsiusToFahrenheit;
 import coverter.CelsiusToReamur;
 import coverter.ConverterFromCelsius;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        Main main = new Main();
-        double fahrenheit, reamur;
-        ConverterFromCelsius celsiusToFahrenheit = new CelsiusToFahrenheit();
-        ConverterFromCelsius celsiusToReamur = new CelsiusToReamur();
+        List<ConverterFromCelsius> convertersFromCelsius = new ArrayList<>();
+        convertersFromCelsius.add(new CelsiusToFahrenheit());
+        convertersFromCelsius.add(new CelsiusToReamur());
         for (int celsius = 0; celsius <= 100; celsius += 10) {
-            fahrenheit = celsiusToFahrenheit.convertFromCelsius(celsius);
-            reamur = celsiusToReamur.convertFromCelsius(celsius);
-            System.out.println(celsius + ", " + fahrenheit + ", " + reamur);
+            StringBuilder stringBuilder = new StringBuilder();
+            for (ConverterFromCelsius converterFromCelsius: convertersFromCelsius) {
+                stringBuilder.append(converterFromCelsius.convertFromCelsius(celsius));
+                stringBuilder.append(",");
+            }
+            System.out.println(stringBuilder);
         }
     }
 }
