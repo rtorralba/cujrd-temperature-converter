@@ -1,21 +1,18 @@
 package main;
 
+import coverter.CelsiusToFahrenheit;
+import coverter.CelsiusToReamur;
+
 public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         double fahrenheit, reamur;
+        CelsiusToFahrenheit celsiusToFahrenheit = new CelsiusToFahrenheit();
+        CelsiusToReamur celsiusToReamur = new CelsiusToReamur();
         for (int celsius = 0; celsius <= 100; celsius += 10) {
-            fahrenheit = main.celsiusToFahrenheit(celsius);
-            reamur = main.celsiusToReamur(celsius);
+            fahrenheit = celsiusToFahrenheit.celsiusToFahrenheit(celsius);
+            reamur = celsiusToReamur.celsiusToReamur(celsius);
             System.out.println(celsius + ", " + fahrenheit + ", " + reamur);
         }
-    }
-
-    private double celsiusToReamur(int celsius) {
-        return 4.0/5.0 * celsius;
-    }
-
-    private double celsiusToFahrenheit(int celsius) {
-        return 9.0/5.0 * celsius + 32.0;
     }
 }
